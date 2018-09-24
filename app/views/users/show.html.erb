@@ -1,0 +1,20 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+<%= render "follow_form" if logged_in? %>
+
+<br>
+  <%= link_to t("users.show.course_1"), course_1_path, class: "btn btn-lg btn-default" %>
+</br>
+<br>
+  <%= link_to t("users.show.course_2"), course_2_path, class: "btn btn-lg btn-default" %>
+</br>

@@ -1,0 +1,11 @@
+<div class="wordlist1_index">
+  <div class="wi1">
+    <%= link_to wordlist1.name, wordlist1 %>
+  </div>
+  <% if logged_in? && current_user.admin? %>
+  <div class="wi2">
+    <%= link_to t(".delete"), wordlist1, method: :delete,
+      data:{ confirm: t(".sure")}, class: "btn btn-danger btn-xs"%>
+  </div>
+  <% end %>
+</div>

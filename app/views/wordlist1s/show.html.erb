@@ -1,0 +1,51 @@
+<% provide(:title, @wordlist1.name) %>
+
+<div class="Word-list1">
+ <font size="10"><li><%= @wordlist1.name %></li></font><br />
+ <ol>
+ <font size="5"><li><%= @wordlist1.word1 %></li></font><br />
+ <font size="5"><li><%= @wordlist1.word2 %></li></font><br />
+ <font size="5"><li><%= @wordlist1.word3 %></li></font><br />
+ <font size="5"><li><%= @wordlist1.word4 %></li></font><br />
+ <font size="5"><li><%= @wordlist1.word5 %></li></font><br />
+ </ol>
+</div>
+
+<!--<%= form_for @wordlist1 do |f| %>-->
+
+<!--      <%= f.label "Name" %>-->
+<!--      <%= f.text_field :name, class: "form-control"%>-->
+
+<!--      <%= f.label "Word 1" %>-->
+<!--      <%= f.text_field :word1, class: "form-control"%>-->
+      
+<!--      <%= f.label "Word 2" %>-->
+<!--      <%= f.text_field :word2, class: "form-control"%>-->
+      
+<!--      <%= f.label "Word 3" %>-->
+<!--      <%= f.text_field :word3, class: "form-control"%>-->
+      
+<!--      <%= f.label "Word 4" %>-->
+<!--      <%= f.text_field :word4, class: "form-control"%>-->
+      
+<!--      <%= f.label "Word 5" %>-->
+<!--      <%= f.text_field :word5, class: "form-control"%>-->
+      
+<!--      <%= f.fields_for :learned do |ff| %>-->
+
+<!--      <%= ff.text_field :name, class: "form-control"%>-->
+      
+<!--      <%= ff.text_field :word1, class: "form-control"%>-->
+      
+<!--      <%= ff.text_field :word2, class: "form-control"%>-->
+      
+<!--      <%= ff.text_field :word3, class: "form-control"%>-->
+      
+<!--      <%= ff.text_field :word4, class: "form-control"%>-->
+      
+<!--      <%= ff.text_field :word5, class: "form-control"%>-->
+
+<!--        <% end %>-->
+
+<!--      <%= f.submit "Create", class: "btn btn-primary"%>-->
+<!--    <% end %>-->

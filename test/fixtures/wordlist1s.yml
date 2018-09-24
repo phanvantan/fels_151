@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  word1: MyString
+  word2: MyString
+  word3: MyString
+  word4: MyString
+  word5: MyString
+
+two:
+  name: MyString
+  word1: MyString
+  word2: MyString
+  word3: MyString
+  word4: MyString
+  word5: MyString

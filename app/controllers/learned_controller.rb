@@ -1,0 +1,2 @@
+class LearnedController < ApplicationController
+end

@@ -1,0 +1,10 @@
+<h1><%= t "List of word" %> </h1>
+<h2><%= link_to t("New word"), new_wordlist1_path, class: "btn btn-primary btn-md" %></h2>
+
+<%= will_paginate %>
+
+<ul class="wordlist1s">
+  <%= render @wordlist1s %>
+</ul>
+
+<%= will_paginate %>

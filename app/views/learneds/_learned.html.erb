@@ -1,0 +1,4 @@
+<%= form_for(@wordlist1.build_learned) do |f| %>
+  <div><%= hidden_field_tag :word1, @wordlist1.word1 %></div>
+  <%= f.submit "Learned", class: "btn btn-primary" %>
+<% end %>

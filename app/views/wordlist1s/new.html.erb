@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@wordlist1) do |f| %>
+    
+      <%= f.label t(".name") %>
+      <%= f.text_field :name, class: "form-control"%>
+
+      <%= f.label t(".word1") %>
+      <%= f.text_field :word1, class: "form-control"%>
+      
+      <%= f.label t(".word2") %>
+      <%= f.text_field :word2, class: "form-control"%>
+      
+      <%= f.label t(".word3") %>
+      <%= f.text_field :word3, class: "form-control"%>
+      
+      <%= f.label t(".word4") %>
+      <%= f.text_field :word4, class: "form-control"%>
+      
+      <%= f.label t(".word5") %>
+      <%= f.text_field :word5, class: "form-control"%>
+
+      <%= f.submit t(".save"), class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

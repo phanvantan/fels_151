@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic|Open+Sans:400,600,400italic,600italic);
+
+/* high level styles */
+html,div,object,h1,h2,h3,h4,h5,h6,p,pre,astrike,strong,ul,li,canvas,nav {
+    margin: 0;
+    padding: -1;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+body {
+    min-height: 100%;
+    font-size: 93.75%;
+    line-height: 1.6em;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #f2f2f2;
+    min-width: 320px;
+}
+
+h1 {
+    font-size: 26px;
+    line-height: 1em;
+    margin: 0 0 14px;
+    color: #0d3880;
+}
+
+h4 {
+    font-size: 17px;
+    line-height: 19px;
+    font-weight: bold;
+    margin: 0 0 7px;
+    color: #282828;
+}
+
+
+a {
+    text-decoration: none;
+    color: #004aac;
+    cursor: pointer;
+}
+
+p {
+    margin-top: 100px;
+    margin-bottom: 7px;
+}
+
+ul {
+    padding: 0;
+}
+
+/*ul.menu li,*/ ul.paging_links li {
+    display: table-cell;
+    text-align: center;
+}
+
+pos {
+    color: #555555;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.9em;
+}
+/* -end- high level styles */
+
+
+.hide_all {
+    display: none;
+}
+
+/* premium menu bar */
+
+#rightcolumn h4, .tint_panel h4 {
+    padding: 0 0 8px;
+    border-bottom: 1px solid #787878;
+    margin-top:7px;
+}
+
+#entries-selector a, #entries-selector span {
+    padding: 7px 14px;
+    margin-bottom: 2px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.side-selector__right {
+    width: 60%;
+    float: left;
+    background-color: white;}
+    
+.responsive_row {
+    min-width: 300px;
+    margin-bottom: 12px;
+    clear: both;
+    max-width: 761px; 
+    min-width: 261px;
+}
+
+.side-selector {
+    margin-right: -15px;
+    margin-left: -15px;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: #eee;
+    border: 1px solid #cccccc;
+    max-width: 762px;
+}
+
+.side-selector__left, .side-selector__right {
+    width: 100%;
+    float: none;
+    padding: 0;
+}
+
+#entries-selector {
+    padding: 7px;
+}
+
+.wordlist li {
+    padding: 7px;
+}

@@ -1,0 +1,15 @@
+<% provide(:title, t("static_pages.help.staticpage")) %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %><%= t ".title" %></title>
+  </head>
+  <body>
+    <h1><%= t ".help_1" %></h1>
+    <p>
+      <%= t ".help_2" %>
+      <%= link_to t(".here"), t(".url")%>
+      <%=t ".help_3" %>
+    </p>
+  </body>
+</html>
