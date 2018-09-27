@@ -1,0 +1,10 @@
+<div class="question_index">
+  <div class="qs1">
+    <%= label_tag question.content %>
+  </div>
+  <div class="qs2">
+    <%= link_to t(".delete"), question, method: :delete,
+      data:{ confirm: t(".sure")}, class: "btn btn-danger btn-xs"%>
+    <%= link_to t(".edit"), edit_question_path(question.id), class: "btn btn-success btn-xs" %>
+  </div>
+</div>

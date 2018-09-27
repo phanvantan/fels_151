@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @question do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :Question %>
+      <%= f.text_field :content, class: "form-control"%>
+
+      <%= f.label :Answers %>
+      <div class="list-answers-area">
+        <%= f.fields_for :answers do |answer| %>
+
+          <div class="list-answers">
+            <%= answer.hidden_field :id %>
+            <div class="son1">
+              <%= answer.text_field :content, class: "form-control"%>
+            </div>
+            <div class="son2">
+              <%= answer.check_box :correct %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= f.submit t(".save"), class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

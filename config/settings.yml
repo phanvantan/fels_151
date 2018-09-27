@@ -1,0 +1,22 @@
+user:
+  name:
+    maximum: 50
+  email:
+    maximum: 255
+  pass:
+    minimum: 6
+helper:
+  session:
+    one: "1"
+question:
+  model:
+    content:
+      maximum: 200
+  controller:
+    check:
+      one: "1"
+    perpage:
+      ten: 10
+answer:
+  content:
+    maximum: 200

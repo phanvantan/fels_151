@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @question do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :Question %>
+      <%= f.text_field :content, class: "form-control"%>
+
+      <%= f.label :Answers %>
+      <img alt="add logo" src="/assets/add.png" id="add-answer"/>
+
+      <div class="list-answers-area">
+        <%= f.fields_for :answers do |answers| %>
+          <div class="list-answers">
+            <div class="son1">
+              <%= answers.text_field :content, class: "form-control"%>
+            </div>
+            <div class="son2"
+              <%= answers.check_box :correct %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= f.submit t(".create"), class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>
