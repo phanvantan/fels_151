@@ -10,11 +10,23 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :users
+  resources :users do
+    get "history", on: :member
+  end
+
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :questions
+  resources :test_details, only: :show
+  resources :user_tests, only: :show
+  resources :courses
   resources :lessons
-  resources :lesson_qetions
 
+  namespace :admin do
+    root "admins#index"
+    resources :courses
+    resources :lessons
+    resources :questions
+    resources :users
+    resources :words
+  end
 end

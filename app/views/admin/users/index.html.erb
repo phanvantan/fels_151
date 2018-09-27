@@ -1,0 +1,45 @@
+<% provide(:title, t(".all_users")) %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12" >
+      <div class="col-md-1 course-size">
+        <%= @users.size %>
+      </div>
+      <div class="col-md-2">
+        <%= t ".users" %></p>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <%= link_to t(".new"), "#", class: "btn btn-primary btn-block",
+        data: {toggle: "modal", target: "#create-user"} %>
+      <div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="center">
+                <h4 class="modal-title" id="myModalLabel"><%= t ".new_user" %></h4>
+              </div>
+            </div>
+            <div class="modal-body area-course">
+              <%= render "form" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="search-form">
+        <%= search_form_for @q, url: admin_users_path, method: :get do |f| %>
+          <%= f.text_field :name_cont, placeholder: t(".enter_name") %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <ol class="users">
+    <%= render @users %>
+  </ol>
+  <%= will_paginate @users %>
+</div>

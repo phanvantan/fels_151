@@ -1,0 +1,9 @@
+<tr>
+  <td><%= lesson.id %></td>
+  <td><%= lesson.title %></td>
+  <td><%= I18n.localize lesson.created_at, formats: :date_month_year %></td>
+  <td><%= lesson.questions.size %></td>
+  <td>
+    <%= link_to t(".start"), lesson_path(lesson.id) %>
+  </td>
+</tr>

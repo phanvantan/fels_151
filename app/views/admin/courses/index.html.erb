@@ -1,0 +1,67 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-md-12" >
+    <div class="col-md-1 course-size">
+      <%= @courses.size %>
+    </div>
+    <div class="col-md-2">
+      <%= t ".courses" %></p>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <%= link_to t(".new"), "#", class: "btn btn-primary btn-block",
+      data: {toggle: "modal", target: "#form-create-course"} %>
+    <div class="modal fade form" id="form-create-course" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="center">
+              <h4 class="modal-title" id="myModalLabel"><%= t ".new_course" %></h4>
+            </div>
+          </div>
+          <div class="modal-body new-form-create">
+            <%= render "form_create" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="search-form">
+        <%= search_form_for @q, url: admin_courses_path, method: :get do |f| %>
+          <%= f.search_field :title_cont %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
+<table class="table table-bordered table-hover text-center">
+  <thead>
+    <tr>
+      <th><%= t ".id" %></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".content" %></th>
+      <th><%= t ".description" %></th>
+      <th><%= t ".date" %></th>
+      <th colspan="2"><%= t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody class="course-list">
+        <%= render @courses %>
+  </tbody>
+  </table>
+  <div class="modal fade form" id="form-edit-course" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="center">
+            <h4 class="modal-title" id="myModalLabel"><%= t ".edit_course" %></h4>
+          </div>
+        </div>
+        <div class="modal-body new-form-edit">
+          <%= render "form_edit" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= will_paginate @courses, theme: "twitter-bootstrap-3" %>

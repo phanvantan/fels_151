@@ -1,6 +1,7 @@
 en:
   password_reset: "Password reset"
   account_activation: "Account activation"
+  welcome: "Welcome to the E-learning!"
   controllres:
     users_controller:
       user_is_not_admin: "User is not admin"
@@ -10,16 +11,13 @@ en:
   mailers:
     user:
       account_activation: "Account activation"
-  base_title: "Course e-learning"
+  base_title: "E-learning"
   hello: "Hello world"
-  ruby_on_rail_tutorial: "Ruby on Rails Tutorial"
   home: "Home"
   help: "Help"
   contact: "Contact"
   about: "About"
   login: "Login"
-  link_rails_tutorial: "http://www.railstutorial.org/"
-  link_rails: "http://rubyonrails.org/"
   shared:
     error_messages:
       the_form: "The form contains "
@@ -29,15 +27,34 @@ en:
   layouts:
     footer:
       news: "News"
-      link_new: "http://news.railstutorial.org/"
       str_footer: "The %{link1} by %{link2}"
     header:
+      history: "History"
       sample_app: "e-learning"
       login: "Log in"
       users: "Users"
       profile: "Profile"
       settings: "Settings"
       logout: "Log out"
+      all_course: "All Course"
+      acount: "Acount"
+    admin_body:
+      logout : "Logout"
+      name: "E-learning System"
+      dashboard: "Dashboard"
+      courses: "Courses"
+      all_courses: "All Courses"
+      lessons: "Lessons"
+      all_lessons: "All Lessons"
+      questions: "Questions"
+      all_questions: "All Questions"
+      words: "Words"
+      all_words: "All Words"
+      new_word: "New Word"
+      users: "Users"
+      all_users: "All Users"
+      new_user: "New User"
+      back: "Back"
   sessions:
     create:
       message: "Account not activated. Check your email for the activation link."
@@ -60,16 +77,16 @@ en:
       errors:
         one: "1 error"
         other: "%{count} errors"
+    search_form:
+      search: "search"
   static_pages:
     root: "Root"
     str_root: "This is the home page for the %{link} sample application."
     home:
-      link_rails: "http://www.railstutorial.org/"
+      all_course: "All Course"
       welcome: "Welcome to the E-learning"
       str_home: "This is the home page for the %{link} e-learning application."
     about:
-      link_book: "http://www.railstutorial.org/book"
-      link_screen: "http://screencasts.railstutorial.org"
       screencast_series: "screencast series"
       ruby_on_rails: "Ruby on Rails"
       book: "book"
@@ -78,14 +95,11 @@ en:
     contact:
       str_contact: "Contact the Ruby on Rails Tutorial about the sample app at %{link}. "
       contact_page: "contact page"
-      link_contact: "http://www.railstutorial.org/contact"
     help:
       str_help: "Get help on the Ruby on Rails Tutorial at the %{link1}
       To get help on this sample app, see the %{link2}."
       rail_help: "Rails Tutorial help section"
       ruby_on_rail_help: "Ruby on Rails Tutoria book"
-      link_help: "http://www.railstutorial.org/help"
-      link_book: "http://www.railstutorial.org/book"
   users:
     name: "Name"
     email: "Email"
@@ -118,6 +132,9 @@ en:
     destroy:
       user_destroy: "User deleted"
       can_not: "Can't destroy, please check"
+    history:
+      back: "Back"
+      not_test: "You have not take the test yet"
   user_mailer:
     account_activation:
       sample_app: "E-learning"
@@ -153,30 +170,155 @@ en:
       expired: "Password reset has expired."
   questions:
     create:
-      question_create: "Create success"
-      can_not: "Can't Create"
       correct_exist: "You must tick less than one checkbox"
-    new:
-      create: "Create"
-      new : "New Question"
-    question:
-      new: "New"
-      delete: "Delete"
-      sure: "Sure"
-      edit: "Edit"
-    edit:
-      save: "Save"
     index:
+      back: "Back"
+      new: "New"
       list_question: "List Question"
-    destroy:
-      question_destroy: "Question had destroy"
-      can_not: "Can't Destroy"
-    update:
-      can_not: "Can't Update"
-      update: "Update success"
-      correct_exist: "You must tick less than one checkbox"
-    load_question:
-      not_question: "Please enter new question"
   lessons:
+    lesson:
+      start: "Start"
+    index:
+      id: "ID"
+      name: "Title"
+      date: "Date"
+      number_question: "Question Number"
+      start: "Start"
+      list_lesson: "list Lesson"
+      title: "All Lessons"
     show:
+      minutes: " minutes"
+      time_left: "Time left "
+      submit_lesson: "Are you sure you want to submit this form?"
       submit: "Submit"
+  user_tests:
+    not_found: "Not Found"
+    show:
+      home: "Home"
+      detail: "View Detail"
+    index:
+      history: "History"
+      back: "back"
+  courses:
+    course:
+      start: "Start"
+  admin:
+    admins:
+      index:
+        title: "Admin"
+        courses: "Courses"
+        details: "Details"
+        words: "Words"
+        lessons: "Lessons"
+        users: "Users"
+    courses:
+      course:
+        delete: "Delete"
+        edit: "Edit"
+        sure: "Sure"
+      view: "View"
+      edit: "Edit"
+      index:
+        new_course: "New Course"
+        edit_course: "Edit Course"
+        new: "New"
+        title: "Manager Courses"
+        courses: " Courses"
+        new_course: "New Course"
+        id: "id"
+        name: "Title"
+        content: "Content"
+        description: "Description"
+        date: "date"
+        action: "Action"
+      form_create:
+        create: "Create"
+        close: "Close"
+        course: "Create Course"
+      form_edit:
+        save: "Save"
+        close: "Close"
+        course: "Edit Course"
+      edit_course:
+      create:
+        create_success: "Create Success"
+        create_fail: "Create Fail"
+      update:
+        cant_find_course: "Course not found"
+        can_not: "Can't Update"
+        update: "Update success"
+      edit:
+        save_course: "Save Course"
+        sure: "Sure"
+      destroy:
+        destroy_success: "Destroy Success"
+        can_not: "Destroy Fail"
+    users:
+      user:
+        delete: "Delete"
+        sure: "Sure"
+      index:
+        enter_name: "Enter name"
+        all_users: "All Users"
+        new: "New"
+        new_user: "New User"
+      form:
+        create: "Create User"
+    lessons:
+      lesson:
+        sure: "Sure"
+      new:
+        title: "New Lesson"
+        create: "Create"
+      index:
+        title: "Manager Lessons"
+        id: "ID"
+        course_id: "Course id"
+        name: "Title"
+        date: "Date"
+        number_question: "Number Question"
+        action: "Action"
+      create:
+        create_success: "Create Success"
+        create_fail: "Create Fail"
+      destroy:
+        destroy_success: "Destroy Success"
+        destroy_fail: "Destroy Fail"
+        not_found: "Lesson not found"
+      edit:
+        title: "Edit Lesson"
+        save: "Save"
+      update:
+        update_success: "Update Success"
+        update_fail: "Update Fail"
+    questions:
+      question:
+        sure: "Sure"
+      index:
+        title: "Manager Questions"
+        id: "ID"
+        lesson_id: "Lesson Id"
+        content: "Content"
+        date: "Date"
+        category: "Category"
+        number_answers: "Number Answers"
+        action: "Action"
+      new:
+        title: "New Question"
+        add: "Add"
+        create: "Create"
+        back: "Back"
+      create:
+        create_success: "Create Success"
+        create_fail: "Create Fail"
+      edit:
+        title: "Edit Question"
+        add: "Add"
+        save: "Save"
+        back: "Back"
+      update:
+        update_success: "Update Success"
+        update_fail: "Update Fail"
+      destroy:
+        destroy_success: "Destroy Success"
+        destroy_fail: "Destroy Fail"

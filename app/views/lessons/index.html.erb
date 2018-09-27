@@ -1,0 +1,16 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<table class="table table-bordered table-hover text-center">
+  <thead>
+    <tr>
+      <th><%= t ".id" %></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".date" %></th>
+      <th><%= t ".number_question" %></th>
+      <th><%= t ".start" %></th>
+    </tr>
+  </thead>
+  <tbody class="lessons-list">
+    <%= render @lessons %>
+  </tbody>
+</table>

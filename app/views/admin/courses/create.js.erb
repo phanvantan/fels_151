@@ -1,0 +1,7 @@
+<% if flash[:success].present? %>
+  $('#form-create-course').modal('hide');
+  $('.course-size').html('<%= @courses.size %>');
+  $('.course-list').html('<%= j render @courses %>')
+  $('.area-alert').html('<%= j render "layouts/flash_alert" %>')
+<% end %>
+  $('.new-form-create').html('<%= j render "form_create" %>');

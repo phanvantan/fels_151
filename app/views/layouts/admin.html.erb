@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "admin", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "admin", "data-turbolinks-track": true %>
+  </head>
+  <body>
+    <%= render "layouts/admin_body" %>
+  </body>
+</html>

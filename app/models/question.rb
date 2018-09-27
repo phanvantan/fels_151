@@ -1,8 +1,12 @@
 class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
-  has_many :lesson_questions
-  has_many :lessons, through: :lesson_questions
+  belongs_to :lesson
   accepts_nested_attributes_for :answers
+  scope :find_by_question, -> question_id do
+    where("id = #{question_id}").first.content
+  end
+  enum category: {radio: 0, checkbox: 1}
   validates :content, presence: true,
    length: {maximum: Settings.question.model.content.maximum}
+
 end

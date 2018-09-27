@@ -1,0 +1,5 @@
+<% if flash[:success].present? %>
+  $('#form-edit-course').modal('hide');
+  $('.course-list').html('<%= j render @courses %>')
+  $('.area-alert').html('<%= j render "layouts/flash_alert" %>')
+<% end %>

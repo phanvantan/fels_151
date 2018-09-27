@@ -1,9 +1,9 @@
-class CreateLessons < ActiveRecord::Migration[5.2]
+class CreateLesson < ActiveRecord::Migration[5.2]
   def change
     create_table :lessons do |t|
-      t.integer :courseid
+      t.integer :course_id, foreign_key: true
       t.string :title
-
+      
       t.timestamps
     end
   end

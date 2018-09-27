@@ -18,8 +18,13 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "will_paginate", "~> 3.1.0"
-gem "pagy"
-gem 'pry'
+gem "pry"
+gem "bcrypt", "3.1.12"
+gem "faker", "1.7.3"
+gem "ransack"
+gem "carrierwave", "1.2.2"
+gem "mini_magick", "4.7.0"
+
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -32,10 +37,9 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 end
 
-group :test do
-  gem "capybara", ">= 2.15"
-  gem "selenium-webdriver"
-  gem "chromedriver-helper"
+group :production do
+  gem "pg", "0.20.0"
+  gem "fog", "1.42"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
