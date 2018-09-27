@@ -1,0 +1,9 @@
+<% if logged_in? && current_user.admin? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="question_infor">
+        <%= link_to "index question", questions_path %>
+      </section>
+    </aside>
+  </div>
+<% end %>

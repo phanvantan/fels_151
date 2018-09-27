@@ -1,0 +1,2 @@
+class TestDetail < ApplicationRecord
+end

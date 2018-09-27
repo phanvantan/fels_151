@@ -1,0 +1,15 @@
+<%= form_for @lesson, url: user_lesson_path do |f| %>
+  <%= f.text_field :title %>
+  <div class="col-md-6 col-md-offset-3">
+      <%= f.fields_for :questions do |question|%>
+        <strong><%= question.text_field :content %></strong>
+          <%= question.fields_for :answers do |answer| %>
+            <div class="list-answers">
+              <%= answer.check_box :correct, {},check_value = "0" %>
+              <%= answer.text_field :content %>
+            </div>
+          <% end %>
+        <% end %>
+      <%= f.submit t(".submit"), id: "check_data", class: "btn btn-primary" %>
+    </div>
+<% end %>
