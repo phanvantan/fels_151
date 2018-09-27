@@ -25,9 +25,14 @@ gem "ransack"
 gem "carrierwave", "1.2.2"
 gem "mini_magick", "4.7.0"
 
-
 group :development, :test do
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "rspec-rails", "~> 3.8.1"
+end
+
+group :test do
+  gem "shoulda-matchers", "4.0.0.rc1"
+  gem "rails-controller-testing"
 end
 
 group :development do

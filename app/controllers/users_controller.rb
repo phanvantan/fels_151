@@ -60,7 +60,6 @@ class UsersController < ApplicationController
       :password_confirmation
   end
 
-
   def correct_user
     @user = User.find_by id: params[:id]
     return if current_user? @user

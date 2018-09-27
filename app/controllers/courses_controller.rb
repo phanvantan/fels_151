@@ -16,7 +16,7 @@ private
   def load_course
     @course = Course.find_by id: params[:id]
     return if @course
-    flash[:danger] = "cant_find_course"
-    redirect_back_or user
+    flash[:danger] = t ".cant_find_course"
+    redirect_to courses_path
   end
 end

@@ -191,6 +191,27 @@ en:
       time_left: "Time left "
       submit_lesson: "Are you sure you want to submit this form?"
       submit: "Submit"
+      correct_exist: "You must tick less than one checkbox"
+    index:
+      back: "Back"
+      new: "New"
+      list_question: "List Question"
+  lessons:
+    lesson:
+      start: "Start"
+    index:
+      id: "ID"
+      name: "Title"
+      date: "Date"
+      number_question: "Question Number"
+      start: "Start"
+      list_lesson: "list Lesson"
+      title: "All Lessons"
+    show:
+      minutes: " minutes"
+      time_left: "Time left "
+      submit_lesson: "Are you sure you want to submit this form?"
+      submit: "Submit"
   user_tests:
     not_found: "Not Found"
     show:
@@ -200,6 +221,10 @@ en:
       history: "History"
       back: "back"
   courses:
+    show:
+      cant_find_course: "Course not found"
+    index:
+      cant_find_course: "Course not found"
     course:
       start: "Start"
   admin:
