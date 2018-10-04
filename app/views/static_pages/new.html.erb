@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @question do |f| %>
+      <%= f.label :Question %>
+      <%= f.text_field :content, class: "form-control"%>
+      <%= f.label :Answers %>
+      <div class='list-answers-area'>
+      <%= f.fields_for :answers do |ff| %>
+        <div class='list-answers'>
+          <%= ff.text_field :content, class: "form-control"%>
+          <%= ff.check_box :correct %>
+        </div>
+      </div>
+      <img alt="add logo" src="/assets/add.png" id="add-answer"/>
+      <% end %>
+    <%= f.submit t(".create"), class: "btn btn-primary"%>
+  <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+ var a = 0;
+  $('#add-answer').click(function functionName() {
+    nestedForm = $('.list-answers').last();
+    newNestedForm = nestedForm.clone();
+    formsOnPage = $(".list-answer").length;
+    $(newNestedForm).find('input').each (function(){
+        oldId = $(this).attr('id');
+        if(oldId){
+          newId = oldId.replace(new RegExp(/_[0-9]+_/), "_" + (formsOnPage + 1).toString() + "_");
+          $(this).attr('id', newId);
+        }
+        oldName = $(this).attr('name');
+        newName = oldName.replace(new RegExp(/\[[0-9]+\]/), "[" + (formsOnPage + 1).toString() + "]");
+        $(this).attr('name', newName);
+       });
+
+    $('.list-answers-area').append(newNestedForm);
+    // a = a + 1;
+    // $('.list-answers').append("<input class='form-control' name='question[answers_attributes][" + a + "][content]' type='text'>");
+    // $('.list-answers').append("<input id='question_answers_attributes_" + a + "_correct_classform-control' value='1' name='question[answers_attributes][" + a + "][correct]' class='form-control' type='radio'>");
+  })
+</script>
