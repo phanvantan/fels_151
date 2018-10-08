@@ -15,8 +15,8 @@ question:
   controller:
     check:
       one: "1"
-    perpage:
-      ten: 10
 answer:
   content:
     maximum: 200
+paginate:
+  default: 10

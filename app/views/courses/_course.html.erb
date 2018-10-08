@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="course_image">
+        <%= image_tag(url_for(course.image)) %>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <%= label_tag course.title %>
+      <%= label_tag course.description %>
+    </div>
+      <%= link_to t(".delete"), course, method: :delete,
+      data:{ confirm: t(".sure")}, class: "form-controller"%>
+      <%= link_to t(".edit"), edit_course_path(course.id), class: "form-controller" %>
+  </div>
+</div>

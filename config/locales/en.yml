@@ -171,3 +171,14 @@ en:
   lessons:
     show:
       submit: "Submit"
+  courses:
+    new:
+      create_course: "Create Course"
+      cant_find_course: "Course not found"
+    create:
+      create_success: "Create Success"
+      create_fail: "Create Fail"
+    update:
+      cant_find_course: "Course not found"
+      can_not: "Can't Update"
+      update: "Update success"

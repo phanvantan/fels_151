@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.paginate page: params[:page],
-      per_page: Settings.question.controller.perpage.ten
+      per_page: Settings.paginate.default
 
   end
 
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
         flash[:danger] = t ".can_not"
         redirect_to edit_course_lesson_question_path(params[:course_id], params[:lesson_id])
       end
-    else(params[:course_id], params[:lesson_id])
+    else
       redirect_to new_course_lesson_question_path(params[:course_id], params[:lesson_id])
     end
   end
