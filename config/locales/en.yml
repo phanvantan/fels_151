@@ -34,6 +34,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       logout: "Log out"
+      all_course: "All Course"
   sessions:
     create:
       message: "Account not activated. Check your email for the activation link."
@@ -60,6 +61,7 @@ en:
     root: "Root"
     str_root: "This is the home page for the %{link} sample application."
     home:
+      all_course: "All Course"
       welcome: "Welcome to the E-learning"
       str_home: "This is the home page for the %{link} e-learning application."
     about:
@@ -169,9 +171,26 @@ en:
     load_question:
       not_question: "Please enter new question"
   lessons:
+    lesson:
+      delete: "Delete"
+      sure : "Sure"
+      edit: "Edit"
+      start: "Start"
+      add_question: "Add question"
+    index: "list Lesson"
     show:
       submit: "Submit"
+    new:
+      create_lesson: "Create Lesson"
+    create:
+      create_success: "Create Success"
+      create_fail: "Create Fail"
+    destroy:
+      destroy_success: "Destroy Success"
+      destroy_fail: "Destroy Fail"
   courses:
+    index:
+      new: "New"
     new:
       create_course: "Create Course"
       cant_find_course: "Course not found"
@@ -182,3 +201,10 @@ en:
       cant_find_course: "Course not found"
       can_not: "Can't Update"
       update: "Update success"
+    edit:
+      save_course: "Save Course"
+    course:
+      sure: "Sure"
+    destroy:
+      destroy_success: "Destroy Success"
+      can_not: "Destroy Fail"

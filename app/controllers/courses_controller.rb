@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :load_course, only: [:update, :destroy]
+  before_action :load_course, only: [:update, :destroy, :edit, :show]
 
   def new
     @course = Course.new
@@ -8,6 +8,11 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all.paginate page: params[:page],
       per_page: Settings.paginate.default
+  end
+
+  def edit; end
+
+  def show
   end
 
   def create
@@ -27,8 +32,19 @@ class CoursesController < ApplicationController
     else
       flash[:danger] = t ".can_not"
     end
-      render :index
+      redirect_to courses_path
   end
+
+  def destroy
+    if @course.destroy
+      @course.image.purge
+      flash[:success] = "destroy_success"
+    else
+      flash[:danger] = t ".can_not"
+    end
+    redirect_to courses_path
+  end
+
 
   private
 

@@ -1,0 +1,4 @@
+<%= @course.content %>
+<br><%= link_to t(".word_list"), "#" %></br>
+<br><%= link_to t(".add_lesson"), new_course_lesson_path(@course.id) %></br>
+<br><%= link_to t(".list_lesson"), course_lessons_path(@course.id) %></br>

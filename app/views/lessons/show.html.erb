@@ -1,15 +1,33 @@
-<%= form_for @lesson, url: user_lesson_path do |f| %>
-  <%= f.text_field :title %>
-  <div class="col-md-6 col-md-offset-3">
+<%= form_for @lesson, url: course_lesson_path(params[:course_id]), id: "form-lesson" do |f| %>
+  <div class="center">
+    <%= f.hidden_field :id %>
+    <h1><%= f.text_field :title, disabled: true %></h1>
+  </div>
       <%= f.fields_for :questions do |question|%>
-        <strong><%= question.text_field :content %></strong>
+      <% number = number_correct question.object %>
+      <ol>
+      <li>
+        <strong><%= question.text_field :content, disabled: true %></strong>
           <%= question.fields_for :answers do |answer| %>
-            <div class="list-answers">
-              <%= answer.check_box :correct, {},check_value = "0" %>
-              <%= answer.text_field :content %>
+          <div class="answer-area">
+            <div class="view-answers">
+              <div class="son1">
+                <%= answer.text_field :content, disabled: true %>
+              </div>
+              <div class="son2">
+                <% if number %>
+                  <%= answer.hidden_field :correct %>
+                  <%= answer.check_box :correct, checked: "false" %>
+                <% else %>
+                  <%= answer.radio_button :correct ,true %>
+                <% end %>
+              </div>
             </div>
+          </div>
           <% end %>
+        </li>
+      </ol>
         <% end %>
-      <%= f.submit t(".submit"), id: "check_data", class: "btn btn-primary" %>
+      <%= f.submit t(".submit"), class: "btn btn-primary" %>
     </div>
 <% end %>

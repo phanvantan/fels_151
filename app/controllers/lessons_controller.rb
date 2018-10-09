@@ -1,23 +1,47 @@
 class LessonsController < ApplicationController
-  before_action :load_lesson, only: [:show, :update]
+  before_action :load_lesson, only: [:show, :update, :destroy, :number_correct]
+  before_action :load_course, only: [:create, :destroy]
 
   def new
     @lesson = Lesson.new
     @question = @lesson.questions.build
-    @answer = @lesson.answers.build
+    @answer = @question.answers.build
+  end
+
+  def index
+    @lessons = Lesson.all.paginate page: params[:page],
+      per_page: Settings.paginate.default
   end
 
   def create
     @lesson = Lesson.new lesson_params
+    if @lesson.save
+      flash[:success] = t ".create_success"
+      redirect_to course_lessons_path(@course)
+    else
+      flash[:danger] = t ".create_fail"
+      render :new
+    end
   end
 
-  def show; end
+  def show
+
+  end
+
+  def destroy
+    if @lesson.destroy
+      flash[:success] = t "destroy_success"
+    else
+      flash[:danger] = t ".destroy_fail"
+    end
+    redirect_to course_lessons_path(@course)
+
+  end
 
   def update
-    binding.pry
-    @lesson = Lesson.new lesson_params
-    @question = @lesson["title"]
+    @lesson = Lesson.new lesson_question_params
   end
+
   private
     def load_lesson
       @lesson = Lesson.find_by id: params[:id]
@@ -25,9 +49,20 @@ class LessonsController < ApplicationController
       redirect_to root_url
     end
 
-    def lesson_params
-      params.require(:lesson).permit :title,
-        questions_attributes: [:id, :content],
-          answers_attributes: [:id, :content, :correct]
+    def load_course
+      @course = Course.find_by id: params[:course_id]
+      return if @course
+      redirect_to root_url
     end
+
+    def lesson_params
+      params.require(:lesson).permit :course_id, :title
+    end
+
+    def lesson_question_params
+      params.require(:lesson).permit :id, :course_id, :title,
+        questions_attributes: :content,
+        answers_attributes: [:id, :content, :correct]
+    end
+
 end

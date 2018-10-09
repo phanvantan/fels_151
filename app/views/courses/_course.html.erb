@@ -2,15 +2,17 @@
   <div class="row">
     <div class="col-md-2">
       <div class="course_image">
-        <%= image_tag(url_for(course.image)) %>
+        <%= link_to image_tag(url_for(course.image)), course_path(course.id) %>
       </div>
     </div>
     <div class="col-md-10">
       <%= label_tag course.title %>
-      <%= label_tag course.description %>
+      <br><%= label_tag course.description %></br>
     </div>
-      <%= link_to t(".delete"), course, method: :delete,
-      data:{ confirm: t(".sure")}, class: "form-controller"%>
-      <%= link_to t(".edit"), edit_course_path(course.id), class: "form-controller" %>
+      <% if current_user.admin? %>
+        <%= link_to t(".delete"), course, method: :delete,
+        data:{ confirm: t(".sure")}, class: "form-controller"%>
+        <%= link_to t(".edit"), edit_course_path(course.id), class: "form-controller" %>
+      <% end %>
   </div>
 </div>

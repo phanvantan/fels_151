@@ -13,9 +13,9 @@
       <%= f.text_area :content, class: "form-control" %>
 
       <%= f.label :image, t(".confirmation") %>
-      <%= f.file_field :image, class: "form-control" %>
+      <%= f.file_field :image %>
 
-      <%= f.submit t(".create_course"), class: "btn btn-primary" %>
+      <%= f.submit t(".save_course"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

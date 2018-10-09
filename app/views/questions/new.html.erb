@@ -1,8 +1,9 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @question, url: course_lesson_questions_path(params[:course_id],params[:lesson_id]) do |f| %>
+    <%= form_for @question, url: course_lesson_questions_path(params[:course_id],
+      params[:lesson_id]) do |f| %>
       <%= render "shared/error_messages", object: f.object %>
-
+      <%= f.hidden_field :lesson_id, value: params[:lesson_id] %>
       <%= f.label :Question %>
       <%= f.text_field :content, class: "form-control"%>
 
