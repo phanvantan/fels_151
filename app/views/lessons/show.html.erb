@@ -1,33 +1,20 @@
-<%= form_for @lesson, url: course_lesson_path(params[:course_id]), id: "form-lesson" do |f| %>
+<%= form_for @lesson, url: course_lesson_path(params[:course_id]) do |f| %>
   <div class="center">
     <%= f.hidden_field :id %>
-    <h1><%= f.text_field :title, disabled: true %></h1>
+    <h1><%= f.object.title %></h1>
   </div>
-      <%= f.fields_for :questions do |question|%>
-      <% number = number_correct question.object %>
-      <ol>
-      <li>
-        <strong><%= question.text_field :content, disabled: true %></strong>
-          <%= question.fields_for :answers do |answer| %>
-          <div class="answer-area">
-            <div class="view-answers">
-              <div class="son1">
-                <%= answer.text_field :content, disabled: true %>
-              </div>
-              <div class="son2">
-                <% if number %>
-                  <%= answer.hidden_field :correct %>
-                  <%= answer.check_box :correct, checked: "false" %>
-                <% else %>
-                  <%= answer.radio_button :correct ,true %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </li>
-      </ol>
+      <%= f.fields_for :questions do |question_build|%>
+        <ol>
+          <li>
+            <strong><%= question_build.object.content %></strong>
+            <% if number_correct question_build.object %>
+              <%= question_build.collection_check_boxes(:answer_ids, question_build.object.answers, :id, :content) %>
+            <% else %>
+              <%= question_build.collection_radio_buttons(:answer_ids, question_build.object.answers, :id, :content) %>
+            <% end %>
+            </li>
+          </ol>
         <% end %>
-      <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      <%= f.submit t(".submit"), data:{confirm: t(".submit_lesson")}, class: "btn btn-primary" %>
     </div>
 <% end %>

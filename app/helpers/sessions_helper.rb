@@ -32,7 +32,7 @@ module SessionsHelper
         remember user
       else forget user
       end
-      redirect_to questions_path
+      redirect_to courses_path
     end
   end
 

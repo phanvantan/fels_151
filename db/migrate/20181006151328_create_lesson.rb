@@ -3,6 +3,8 @@ class CreateLesson < ActiveRecord::Migration[5.2]
     create_table :lessons do |t|
       t.integer :course_id, foreign_key: true
       t.string :title
+      
+      t.timestamps
     end
   end
 end

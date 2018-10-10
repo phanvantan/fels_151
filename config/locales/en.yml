@@ -179,6 +179,7 @@ en:
       add_question: "Add question"
     index: "list Lesson"
     show:
+      submit_lesson: "Are you sure you want to submit this form?"
       submit: "Submit"
     new:
       create_lesson: "Create Lesson"

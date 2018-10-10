@@ -1,17 +1,23 @@
 class LessonsController < ApplicationController
-  before_action :load_lesson, only: [:show, :update, :destroy, :number_correct]
+  before_action :load_lesson, only: [:show, :update, :destroy, :number_correct, :mark]
   before_action :load_course, only: [:create, :destroy]
 
   def new
     @lesson = Lesson.new
     @question = @lesson.questions.build
     @answer = @question.answers.build
+    @course = Course.new
   end
 
   def index
     @lessons = Lesson.all.paginate page: params[:page],
       per_page: Settings.paginate.default
   end
+
+
+  def edit; end
+
+  def show; end
 
   def create
     @lesson = Lesson.new lesson_params
@@ -24,10 +30,6 @@ class LessonsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   def destroy
     if @lesson.destroy
       flash[:success] = t "destroy_success"
@@ -35,14 +37,23 @@ class LessonsController < ApplicationController
       flash[:danger] = t ".destroy_fail"
     end
     redirect_to course_lessons_path(@course)
-
   end
 
   def update
-    @lesson = Lesson.new lesson_question_params
-  end
+    @point = 0
+    results  = params["lesson"]["questions_attributes"].values
+    results.each do |result|
+      question_id = result.values[1]
+      answer_id = result.values[0]
+      @point +=1 if check_result(question_id, answer_id)
+    end
+
+    redirect_to test_detail_path
+   end
+
 
   private
+
     def load_lesson
       @lesson = Lesson.find_by id: params[:id]
       return if @lesson
@@ -59,10 +70,5 @@ class LessonsController < ApplicationController
       params.require(:lesson).permit :course_id, :title
     end
 
-    def lesson_question_params
-      params.require(:lesson).permit :id, :course_id, :title,
-        questions_attributes: :content,
-        answers_attributes: [:id, :content, :correct]
-    end
 
 end
