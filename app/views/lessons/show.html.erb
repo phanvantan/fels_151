@@ -1,20 +1,24 @@
+<div class="time-warp">
+  <h3>Time left <span id="time">20:00</span> minutes</h3>
+</div>
 <%= form_for @lesson, url: course_lesson_path(params[:course_id]) do |f| %>
   <div class="center">
     <%= f.hidden_field :id %>
     <h1><%= f.object.title %></h1>
   </div>
-      <%= f.fields_for :questions do |question_build|%>
-        <ol>
-          <li>
-            <strong><%= question_build.object.content %></strong>
-            <% if number_correct question_build.object %>
-              <%= question_build.collection_check_boxes(:answer_ids, question_build.object.answers, :id, :content) %>
-            <% else %>
-              <%= question_build.collection_radio_buttons(:answer_ids, question_build.object.answers, :id, :content) %>
-            <% end %>
-            </li>
-          </ol>
-        <% end %>
-      <%= f.submit t(".submit"), data:{confirm: t(".submit_lesson")}, class: "btn btn-primary" %>
-    </div>
+  <div class="list-questions">
+    <%= f.fields_for :questions do |question_build|%>
+      <ol>
+        <li>
+          <strong><%= question_build.object.content %></strong>
+          <% if number_correct question_build.object %>
+            <%= question_build.collection_check_boxes(:answer_ids, question_build.object.answers, :id, :content) %>
+          <% else %>
+            <%= question_build.collection_radio_buttons(:answer_ids, question_build.object.answers, :id, :content) %>
+          <% end %>
+          </li>
+        </ol>
+      <% end %>
+    <%= f.submit t(".submit"), data:{confirm: t(".submit_lesson")}, class: "btn btn-primary" %>
+  </div>
 <% end %>

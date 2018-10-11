@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :load_lesson, only: [:show, :update, :destroy, :number_correct, :mark]
+  before_action :load_lesson, only: [:show, :update, :destroy, :number_correct]
   before_action :load_course, only: [:create, :destroy]
 
   def new
@@ -32,7 +32,7 @@ class LessonsController < ApplicationController
 
   def destroy
     if @lesson.destroy
-      flash[:success] = t "destroy_success"
+      flash[:success] = t ".destroy_success"
     else
       flash[:danger] = t ".destroy_fail"
     end
@@ -40,15 +40,10 @@ class LessonsController < ApplicationController
   end
 
   def update
-    @point = 0
-    results  = params["lesson"]["questions_attributes"].values
-    results.each do |result|
-      question_id = result.values[1]
-      answer_id = result.values[0]
-      @point +=1 if check_result(question_id, answer_id)
-    end
-
-    redirect_to test_detail_path
+    results = params["lesson"]["questions_attributes"].values
+    result_handle results if results
+    set_data results
+    redirect_to user_tests_path(current_user.id)
    end
 
 

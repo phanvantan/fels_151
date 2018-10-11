@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function() {
+$(document).on("turbolinks:load", function(){
   var a = 0;
   $("#add-answer").click(function() {
     nestedForm = $(".list-answers").last();
@@ -14,7 +14,6 @@ $(document).on("turbolinks:load", function() {
           newName = oldName.replace(new RegExp(/\[[0-9]+\]/), "[" + (formsOnPage + 1).toString() + "]");
           $(this).attr("name", newName);
       });
-
     $(".list-answers-area").append(newNestedForm);
   })
 })

@@ -6,13 +6,14 @@
       </div>
     </div>
     <div class="col-md-10">
-      <%= label_tag course.title %>
-      <br><%= label_tag course.description %></br>
+      <h4><%= label_tag course.title %></h4>
+      <%= course.description %>
     </div>
-      <% if current_user.admin? %>
-        <%= link_to t(".delete"), course, method: :delete,
-        data:{confirm: t(".sure")}, class: "form-controller"%>
-        <%= link_to t(".edit"), edit_course_path(course.id), class: "form-controller" %>
-      <% end %>
+    <br><% if current_user.admin? %>
+          <%= link_to t(".delete"), course, method: :delete,
+          data:{confirm: t(".sure")}, class: "form-controller"%>
+          <%= link_to t(".edit"), edit_course_path(course.id), class: "form-controller" %>
+        <% end %>
+    </br>
   </div>
 </div>

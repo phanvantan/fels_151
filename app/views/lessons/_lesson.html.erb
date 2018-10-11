@@ -3,10 +3,12 @@
     <%= label_tag lesson.title %>
   </div>
   <div class="qs2">
-    <%= link_to t(".delete"), course_lessons_path, method: :delete,
-      data:{confirm: t(".sure")} %>
-    <%= link_to t(".edit"), edit_course_lesson_path(params[:course_id],lesson.id) %>
-    <%= link_to t(".add_question"), new_course_lesson_question_path(params[:course_id],lesson.id) %>
+    <% if current_user.admin? %>
+      <%= link_to t(".delete"), course_lesson_path(params[:course_id],lesson.id), method: :delete,
+        data:{confirm: t(".sure")} %>
+      <%= link_to t(".edit"), "#" %>
+      <%= link_to t(".add_question"), new_course_lesson_question_path(params[:course_id],lesson.id) %>
+    <% end %>
     <%= link_to t(".start"), course_lesson_path(params[:course_id],lesson.id) %>
   </div>
 </div>
