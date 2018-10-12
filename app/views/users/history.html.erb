@@ -1,0 +1,47 @@
+<% i = 0 %>
+<% @user.user_tests.each do |user_test| %>
+  <% i += 1 %>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Number of tests</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Question number</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= i %></td>
+        <% user_test.lessons.each do |lesson| %>
+          <td><%= lesson.title %></td>
+          <td>20</td>
+          <td><%= lesson.questions.count%></td>
+          <% break %>
+        <% end %>
+        <td><%= user_test.result %></td>
+        <td><button id="show_user_test">Detail</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="target">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
+          </tr>
+        </thead>
+         <% user_test.test_details.each do |test_detail| %>
+          <tbody>
+            <td><%= test_detail.question %></td>
+            <td><%= test_detail.answer %></td>
+          </tbody>
+        <% end %>
+      </table>
+  </div>
+<% end %>
+<div class="center">
+  <%= link_to t(".back"), root_path, class: "btn btn-info" %>
+</div>

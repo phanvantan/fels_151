@@ -17,14 +17,18 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new question_params
-    if check_exist_correct? && @question.save
-      flash[:success] = t ".question_create"
-      redirect_to course_lesson_questions_path(@course, @lesson)
+    if check_exist_correct?
+      if @question.save
+        flash[:success] = t ".question_create"
+        redirect_to course_lesson_questions_path(@course, @lesson)
+      else
+        flash[:danger] = t ".can_not"
+        render :new
+      end
     else
-      flash[:danger] = t ".can_not"
-      redirect_to new_course_lesson_question_path(@course, @lesson)
+    render :new
     end
-  end
+end
 
 
   def update
@@ -38,13 +42,12 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if @question.destroy
       flash[:success] = t ".question_destroy"
     else
       flash[:danger] = t ".can_not"
     end
-    redirect_to course_lesson_questions_path(params[:course_id], params[:lesson_id])
+    redirect_to course_lesson_questions_path(@course, @lesson)
   end
 
   private

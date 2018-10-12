@@ -1,4 +1,6 @@
-<h1><%= t ".list_lesson" %> </h1>
-<h2><%= link_to t(".new"), new_course_lesson_path(params[:course_id]), class: "btn btn-primary btn-md" %></h2>
+<h1><%= t ".list_lesson" %></h1>
+<% if current_user.admin? %>
+  <h2><%= link_to t(".new"), new_course_lesson_path(params[:course_id]), class: "btn btn-primary btn-md" %></h2>
+<% end %>
 <%= render @lessons %>
 <%= will_paginate @lessons %>

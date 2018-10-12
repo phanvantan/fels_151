@@ -1,6 +1,7 @@
 en:
   password_reset: "Password reset"
   account_activation: "Account activation"
+  welcome: "Welcome to the E-learning!"
   controllres:
     users_controller:
       user_is_not_admin: "User is not admin"
@@ -10,7 +11,7 @@ en:
   mailers:
     user:
       account_activation: "Account activation"
-  base_title: "Course e-learning"
+  base_title: "E-learning"
   hello: "Hello world"
   home: "Home"
   help: "Help"
@@ -28,6 +29,7 @@ en:
       news: "News"
       str_footer: "The %{link1} by %{link2}"
     header:
+      history: "History"
       sample_app: "e-learning"
       login: "Log in"
       users: "Users"
@@ -110,6 +112,9 @@ en:
     destroy:
       user_destroy: "User deleted"
       can_not: "Can't destroy, please check"
+    history:
+      back: "Back"
+      not_test: "You have not take the test yet"
   user_mailer:
     account_activation:
       sample_app: "E-learning"
@@ -179,6 +184,8 @@ en:
       start: "Start"
       add_question: "Add question"
     index: "list Lesson"
+    update:
+      data_fail: "Data Fail, please again"
     show:
       submit_lesson: "Are you sure you want to submit this form?"
       submit: "Submit"
@@ -210,3 +217,11 @@ en:
     destroy:
       destroy_success: "Destroy Success"
       can_not: "Destroy Fail"
+  user_tests:
+    not_found: "Not Found"
+    show:
+      home: "Home"
+      detail: "View Detail"
+    index:
+      history: "History"
+      back: "back"

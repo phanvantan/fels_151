@@ -1,12 +1,12 @@
 class LessonsController < ApplicationController
   before_action :load_lesson, only: [:show, :update, :destroy, :number_correct]
-  before_action :load_course, only: [:create, :destroy]
+  before_action :load_course, only: [:create, :destroy, :index]
 
   def new
     @lesson = Lesson.new
+    @course = Course.new
     @question = @lesson.questions.build
     @answer = @question.answers.build
-    @course = Course.new
   end
 
   def index
@@ -14,10 +14,12 @@ class LessonsController < ApplicationController
       per_page: Settings.paginate.default
   end
 
-
   def edit; end
 
-  def show; end
+  def show
+    @questions = @lesson.questions.paginate page: params[:page],
+      per_page: Settings.paginate.default
+  end
 
   def create
     @lesson = Lesson.new lesson_params
@@ -41,10 +43,15 @@ class LessonsController < ApplicationController
 
   def update
     results = params["lesson"]["questions_attributes"].values
-    result_handle results if results
-    set_data results
-    redirect_to user_tests_path(current_user.id)
+    if results
+      result_handle results
+      user_test = set_data results
+      redirect_to user_test_path user_test
+    else
+      flash[:danger] = t ".data_fail"
+      redirect_to course_lessons_path(@course)
    end
+ end
 
 
   private
@@ -64,6 +71,4 @@ class LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit :course_id, :title
     end
-
-
 end

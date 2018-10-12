@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :history]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   before_action :load_user, only: [:show, :edit,
-    :update, :destroy, :correct_user]
+    :update, :destroy, :correct_user, :history]
 
   def show; end
 
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     end
     redirect_to users_url
   end
+
 
   private
   def load_user

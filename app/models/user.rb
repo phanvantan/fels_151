@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :user_test
+  has_many :user_tests
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest

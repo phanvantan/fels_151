@@ -228,8 +228,7 @@ img {
   height: 120px;
 }
 .time-warp{
-  overflow-wrap: break-word;
-  float: right;
-  margin-right: 5px;
-
+  position: fixed;
+  color: #FFCC00;
+  right: 105px;
 }
