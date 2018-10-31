@@ -1,5 +1,5 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 /* mixins, variables, etc. eaeaea*/
 $gray-medium-light: #eaeaea;
@@ -212,4 +212,24 @@ img {
 
 .input-group{
   margin-top: 10px;
+}
+
+.view_lesson{
+  .correct{
+    width: 5%;
+    float: left;
+  }
+  .content{
+    width: 90%;
+    float: right;
+  }
+}
+.course_image img{
+  width: 150px;
+  height: 120px;
+}
+.time-warp{
+  position: fixed;
+  color: #FF0000;
+  right: 105px;
 }

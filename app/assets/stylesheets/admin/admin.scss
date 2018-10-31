@@ -1,0 +1,240 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+$black-color: #fff;
+$black-m-color: #222;
+$gray-color: #999;
+$black-h-color: #000;
+$pink-color: #d9534f;
+$cyl-color: #f0ad4e;
+$green-color: #5cb85c;
+$red-color: #b52b27;
+$cmyk-color: #df8a13;
+$grap-color: #3d8b3d;
+$t-header: #006DCC;
+
+body {
+  margin-top: 100px;
+  background-color: $black-m-color;
+}
+
+.wrapper {
+  padding-left: 0;
+}
+
+.page-wrapper {
+  width: 100%;
+  padding: 0;
+  background-color: $black-color;
+  min-height: 600px;
+}
+
+.huge {
+  font-size: 50px;
+  line-height: normal;
+}
+
+.top-nav {
+  padding: 0 15px;
+  > {
+    li {
+      display: inline-block;
+      float: left;
+      > a {
+        color: $gray-color;
+        line-height: 20px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        &:hover, &:focus {
+          background-color: $black-h-color;
+          color: $black-color;
+        }
+      }
+    }
+    .open > {
+      a {
+        background-color: $black-h-color;
+        color: $black-color;
+        &:hover, &:focus {
+          background-color: $black-h-color;
+          color: $black-color;
+        }
+      }
+      .dropdown-menu {
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        background-color: $black-color;
+        border-radius: 0 0;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        float: left;
+        margin-top: 0;
+        position: absolute;
+        > li > a {
+          white-space: normal;
+        }
+      }
+    }
+  }
+}
+
+ul.message-dropdown {
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+}
+
+li {
+  &.message-preview {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    width: 275px;
+    > a {
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+  }
+  &.message-footer {
+    margin: 5px 0;
+  }
+}
+
+.alert-dropdown {
+  width: 200px;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-top: 50px;
+  }
+  .page-wrapper {
+    padding: 10px;
+  }
+  .side-nav {
+    background-color: $black-m-color;
+    border-radius: 0;
+    border: none;
+    bottom: 0;
+    left: 180px;
+    margin-left: -180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 40px;
+    position: fixed;
+    top: 51px;
+    width: 180px;
+    > li > a {
+      width: 180px;
+    }
+    li a {
+      &:hover, &:focus {
+        background-color: $black-h-color !important;
+        outline: none;
+      }
+    }
+  }
+  .wrapper {
+    padding-left: 225px;
+  }
+}
+
+.side-nav > li > ul {
+  padding: 0;
+  > li > a {
+    color: $gray-color;
+    display: block;
+    padding: 10px 15px 10px 40px;
+    text-decoration: none;
+    &:hover {
+      color: $black-color;
+    }
+  }
+}
+
+.flot-chart {
+  display: block;
+  height: 400px;
+}
+
+.flot-chart-content {
+  height: 100%;
+  width: 100%;
+}
+
+.huge {
+  font-size: 40px;
+}
+
+.panel-green {
+  border-color: $green-color;
+  > {
+    .panel-heading {
+      background-color: $green-color;
+      border-color: $green-color;
+      color: $black-color;
+    }
+    a {
+      color: $green-color;
+      &:hover {
+        color: $grap-color;
+      }
+    }
+  }
+}
+
+.panel-red {
+  border-color: $pink-color;
+  > {
+    .panel-heading {
+      background-color: $pink-color;
+      border-color: $pink-color;
+      color: $black-color;
+    }
+    a {
+      color: $pink-color;
+      &:hover {
+        color: $red-color;
+      }
+    }
+  }
+}
+
+.panel-yellow {
+  border-color: $cyl-color;
+  > {
+    .panel-heading {
+      background-color: $cyl-color;
+      border-color: $cyl-color;
+      color: $black-color;
+    }
+    a {
+      color: $cyl-color;
+      &:hover {
+        color: $cmyk-color;
+      }
+    }
+  }
+}
+
+th {
+  text-align: center;
+  background-color: $t-header;
+  color: white;
+}
+
+.btn {
+  padding: 4px 8px;
+}
+
+.admin-form-words .answer{
+  display: inline-block;
+  width: 60%;
+  margin-top:10px;
+}
+
+.remove-answer {
+  display: inline-block;
+}
+
+.search-input {
+  margin-bottom: 10px;
+}

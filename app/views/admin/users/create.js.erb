@@ -1,0 +1,7 @@
+<% if flash[:success].present? %>
+  $("#create-user").modal("hide");
+  $(".course-size").html("<%= @courses.size %>");
+  $(".course-list").html("<%= j render @courses %>")
+  $(".area-alert").html('<%= j render "layouts/flash_alert" %>')
+<% end %>
+  $(".area-course").html('<%= j render "form" %>');

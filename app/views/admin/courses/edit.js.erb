@@ -1,0 +1,4 @@
+<% if @course.present? %>
+ $('#form-edit-course').modal('show');
+<% end %>
+  $('.new-form-edit').html('<%= j render "form_edit" %>');

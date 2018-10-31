@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_071912) do
+ActiveRecord::Schema.define(version: 2018_10_16_033611) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
     t.string "content"
-    t.integer "correct"
+    t.boolean "correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -24,19 +24,14 @@ ActiveRecord::Schema.define(version: 2018_10_02_071912) do
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "lesson_questions", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "lesson_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lesson_id"], name: "index_lesson_questions_on_lesson_id"
-    t.index ["question_id"], name: "index_lesson_questions_on_question_id"
+    t.string "title"
+    t.string "content"
+    t.string "description"
+    t.string "picture"
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.integer "courseid"
+    t.integer "course_id"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,16 +41,25 @@ ActiveRecord::Schema.define(version: 2018_10_02_071912) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lesson_id"
+    t.integer "category", default: 0
   end
 
   create_table "test_details", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lesson_id"
+    t.string "answer"
+    t.string "question"
+    t.integer "user_test_id"
   end
 
   create_table "user_tests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.datetime "test_day"
+    t.integer "result"
   end
 
   create_table "users", force: :cascade do |t|

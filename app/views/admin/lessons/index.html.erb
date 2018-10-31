@@ -1,0 +1,39 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-md-12" >
+    <div class="col-md-1 lessons-size">
+      <%= @lessons.size %>
+    </div>
+    <div class="col-md-2">
+      <%= t ".lessons" %></p>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <%= link_to t(".new"), new_admin_lesson_path, class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+    <div class="search-form">
+        <%= search_form_for @q, url: admin_lessons_path, method: :get do |f| %>
+          <%= f.search_field :title_cont %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>
+<table class="table table-bordered table-hover text-center">
+  <thead>
+    <tr>
+      <th><%= t ".id" %></th>
+      <th><%= t ".course_id" %></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".date" %></th>
+      <th><%= t ".number_question" %></th>
+      <th colspan="2"><%= t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody class="lessons-list">
+        <%= render @lessons %>
+  </tbody>
+  </table>
+  <%= will_paginate @lessons, theme: "twitter-bootstrap-3" %>

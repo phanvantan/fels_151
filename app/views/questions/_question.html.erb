@@ -3,8 +3,10 @@
     <%= label_tag question.content %>
   </div>
   <div class="qs2">
-    <%= link_to t(".delete"), question, method: :delete,
-      data:{ confirm: t(".sure")}, class: "btn btn-danger btn-xs"%>
-    <%= link_to t(".edit"), edit_question_path(question.id), class: "btn btn-success btn-xs" %>
+    <%= link_to t(".delete"), course_lesson_question_path(params[:course_id],
+      params[:lesson_id],question.id), method: :delete,
+      data:{confirm: t(".sure")} %>
+    <%= link_to t(".edit"), edit_course_lesson_question_path(params[:course_id],
+      params[:lesson_id],question.id) %>
   </div>
 </div>

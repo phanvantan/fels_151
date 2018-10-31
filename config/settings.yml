@@ -8,6 +8,9 @@ user:
 helper:
   session:
     one: "1"
+  lesson:
+    one: 1
+    zero: 0
 question:
   model:
     content:
@@ -15,8 +18,8 @@ question:
   controller:
     check:
       one: "1"
-    perpage:
-      ten: 10
 answer:
   content:
     maximum: 200
+paginate:
+  default: 10

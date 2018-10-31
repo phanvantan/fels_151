@@ -32,8 +32,12 @@ module SessionsHelper
         remember user
       else forget user
       end
-      redirect_to questions_path
-    end
+      if user.admin?
+        redirect_to admin_root_path
+      else
+        redirect_to courses_path
+      end
+     end
   end
 
   def logged_in?

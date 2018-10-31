@@ -1,0 +1,9 @@
+<h1><%= t(".all_course") %></h1>
+<% if current_user.admin? %>
+  <h2><%= link_to t(".new"), new_course_path, class: "btn btn-primary btn-md" %></h2>
+<% end %>
+<%= will_paginate %>
+<ul class="courses">
+  <%= render @courses %>
+</ul>
+<%= will_paginate %>

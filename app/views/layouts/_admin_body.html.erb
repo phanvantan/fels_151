@@ -1,0 +1,102 @@
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <div class="navbar-brand"><%= t ".name" %></div>
+    </div>
+    <ul class="nav navbar-right top-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-user"></i> <%= current_user.name %><b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
+        </ul>
+      </li>
+    <ul>
+    <div class="collapse navbar-collapse navbar-ex1-collapse ">
+      <ul class="nav navbar-nav side-nav">
+        <li class="active">
+          <%= link_to admin_root_path do %>
+            <i class="fa fa-fw fa-dashboard"><%= t ".dashboard" %></i>
+          <% end %>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#courses">
+            <i class="fa fa-list-alt"></i> <%= t ".courses" %>
+            <i class="fa fa-fw fa-caret-down"></i><b class="caret"></b>
+          </a>
+          <ul id="courses" class="collapse">
+            <li>
+              <%= link_to t(".all_courses"), admin_courses_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#lessons">
+            <i class="fa fa-list-alt"></i> <%= t ".lessons" %>
+            <i class="fa fa-fw fa-caret-down"></i><b class="caret"></b>
+          </a>
+          <ul id="lessons" class="collapse">
+            <li>
+              <%= link_to t(".all_lessons"), admin_lessons_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#questions">
+            <i class="fa fa-list-alt"></i> <%= t ".questions" %>
+            <i class="fa fa-fw fa-caret-down"></i><b class="caret"></b>
+          </a>
+          <ul id="questions" class="collapse">
+            <li>
+              <%= link_to t(".all_questions"), admin_questions_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#words">
+            <i class="fa fa-file-word-o"></i> <%= t ".words" %>
+            <i class="fa fa-fw fa-caret-down"></i><b class="caret"></b>
+          </a>
+          <ul id="words" class="collapse">
+            <li>
+              <%= link_to t(".all_words"), admin_words_path %>
+            </li>
+            <li>
+              <%= link_to t(".new_word"), new_admin_word_path %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);" data-toggle="collapse" data-target="#users">
+            <i class="fa fa-users"></i> <%= t ".users" %>
+            <i class="fa fa-fw fa-caret-down"></i><b class="caret"></b>
+          </a>
+          <ul id="users" class="collapse">
+            <li>
+              <%= link_to t(".all_users"), admin_users_path %>
+            </li>
+          </ul>
+        </li>
+        <li class="active">
+          <%= link_to t(".back"), root_url %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="page-wrapper">
+    <div class="container-fluid">
+      <div class="row area-alert">
+        <%= render "layouts/flash_alert" %>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header text-center">
+            <%= yield :title %>
+          </h1>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+</div>

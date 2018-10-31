@@ -1,0 +1,40 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-md-12" >
+    <div class="col-md-1 questions-size">
+      <%= @questions.size %>
+    </div>
+    <div class="col-md-2">
+      <%= t ".questions" %></p>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <%= link_to t(".new"), new_admin_question_path, class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+    <div class="search-form">
+        <%= search_form_for @q, url: admin_questions_path, method: :get do |f| %>
+          <%= f.search_field :content_cont %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>
+<table class="table table-bordered table-hover text-center">
+  <thead>
+    <tr>
+      <th><%= t ".id" %></th>
+      <th><%= t ".lesson_id" %></th>
+      <th><%= t ".content" %></th>
+      <th><%= t ".date" %></th>
+      <th><%= t ".category" %></th>
+      <th><%= t ".number_answers" %></th>
+      <th colspan="2"><%= t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody class="questions-list">
+        <%= render @questions %>
+  </tbody>
+  </table>
+  <%= will_paginate @questions, theme: "twitter-bootstrap-3" %>

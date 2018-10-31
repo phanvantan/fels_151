@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :history]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   before_action :load_user, only: [:show, :edit,
-    :update, :destroy, :correct_user]
+    :update, :destroy, :correct_user, :history]
 
   def show; end
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes user_params
       flash[:success] = t ".update"
       redirect_to @user
     else
@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+
   private
   def load_user
     @user = User.find_by id: params[:id]
@@ -59,12 +60,6 @@ class UsersController < ApplicationController
       :password_confirmation
   end
 
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t ".please"
-    redirect_to login_url
-  end
 
   def correct_user
     @user = User.find_by id: params[:id]
@@ -73,9 +68,4 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
-  def admin_user
-    return if current_user.admin?
-    flash[:danger] = t ".user_is_not_admin"
-    redirect_to root_url
-  end
 end
